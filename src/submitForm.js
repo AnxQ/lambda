@@ -1,5 +1,6 @@
 import React from 'react'
-import {List, InputItem, Checkbox, Picker, Button, WhiteSpace, WingBlank} from 'antd-mobile';
+import {List, InputItem, Checkbox, Picker, Button, WhiteSpace, WingBlank, TextareaItem} from 'antd-mobile';
+import request, {get, post} from './utils/request'
 import {createForm} from 'rc-form';
 
 import logo from './logo.svg';
@@ -150,6 +151,14 @@ class SubmitForm extends React.Component {
                   {i.label}
                 </CheckboxItem>
             ))}
+          </List>
+          <List renderHeader={() => '备注（兴趣/能力/事迹之类的）'}>
+              <TextareaItem
+                  {...getFieldProps('count', {})}
+                  placeholder="请放飞自我"
+                  rows={5}
+                  count={200}
+              />
           </List>
           <WhiteSpace/>
           <WingBlank>

@@ -4,7 +4,8 @@ import {Icon} from 'antd';
 
 import './App.css';
 import SubmitFormWrapper from './submitForm'
-import setTitle from './pageManagement'
+import InfoPage from './infoPage'
+import setTitle from './utils/pageManagement'
 
 class MainPage extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class MainPage extends Component {
                 }}
                 data-seed="logId"
             >
-
+                <InfoPage/>
             </TabBar.Item>
             <TabBar.Item
                 icon={<Icon type="user" style={{ fontSize: 22 }}/>}
