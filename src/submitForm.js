@@ -20,6 +20,7 @@ if (isIPhone) {
 class SubmitForm extends React.Component {
   componentDidMount() {
     // this.autoFocusInst.focus();
+    
   }
 
   handleClick = () => {
@@ -27,12 +28,18 @@ class SubmitForm extends React.Component {
   };
 
   onLanguageChange = (val) => {
+    this.props.form.getFieldValue('lang')
   };
 
   onSubmit = () => {
     this.props.form.validateFields({force: true}, (error) => {
       if (!error) {
         console.log(this.props.form.getFieldsValue());
+        post('/register', this.props.form.getFieldsValue())
+            .then((res) => {
+              console.log(res);
+              console.log(res ? "T": "F");
+            })
       }
     });
   };
@@ -147,14 +154,19 @@ class SubmitForm extends React.Component {
           </List>
           <List renderHeader={() => '语言基础'}>
             {language.map(i => (
-                <CheckboxItem key={i.value} onChange={() => this.onLanguageChange(i.value)}>
+                <CheckboxItem
+                    key={i.value} onChange={() => this.onLanguageChange(i.value)}>
                   {i.label}
                 </CheckboxItem>
             ))}
           </List>
           <List renderHeader={() => '备注（兴趣/能力/事迹之类的）'}>
               <TextareaItem
-                  {...getFieldProps('count', {})}
+                  {...getFieldProps('motto', {
+                    rules: [
+                      {required: false}
+                    ]
+                  })}
                   placeholder="请放飞自我"
                   rows={5}
                   count={200}

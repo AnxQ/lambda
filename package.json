@@ -4,8 +4,7 @@
   "private": true,
   "dependencies": {
     "ajv": "^6.5.3",
-    "antd": "^3.9.1",
-    "antd-mobile": "^2.2.3",
+    "antd-mobile": "^2.2.6",
     "rc-form": "^2.2.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -20,6 +19,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "antd": "^3.9.3",
     "babel-plugin-import": "^1.8.0",
     "react-app-rewired": "^1.6.2"
   }
